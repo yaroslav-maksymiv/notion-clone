@@ -101,8 +101,9 @@ DJOSER = {
     'LOGIN_FIELD': 'email',
     'SOCIAL_AUTH_TOKEN_STRATEGY': 'djoser.social.token.jwt.TokenStrategy',
     'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS': [
-        'http://localhost:3000', 'http://127.0.0.1:3000/home',
-        'http://localhost:8000', 'http://127.0.0.1:8000/home',
+        'http://localhost:3000', 
+        'http://localhost:8000',
+        'https://notion-clone-nine.vercel.app'
     ],
     'SERIALIZERS': {},
 }
@@ -248,5 +249,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ALLOWED_HOSTS = ['.vercel.app']
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    'https://notion-clone-nine.vercel.app'
+    "http://localhost:8000",
+    "http://localhost:3000",
+]
 CORS_ALLOW_CREDENTIALS = True
