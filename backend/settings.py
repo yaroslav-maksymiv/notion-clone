@@ -251,7 +251,7 @@ ALLOWED_HOSTS = ['.vercel.app']
 
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
-    'https://notion-clone-nine.vercel.app'
+    'https://notion-clone-nine.vercel.app',
     "http://localhost:8000",
     "http://localhost:3000",
 ]
