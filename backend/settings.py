@@ -104,7 +104,7 @@ DJOSER = {
         'http://localhost:3000', 'http://127.0.0.1:3000/home',
         'http://localhost:8000', 'http://127.0.0.1:8000/home',
     ],
-    'SERIALIZERS': {}, 
+    'SERIALIZERS': {},
 }
 
 AUTHENTICATION_BACKENDS = (
@@ -113,7 +113,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv(
+    'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
     'https://www.googleapis.com/auth/userinfo.email',
     'https://www.googleapis.com/auth/userinfo.profile',
@@ -167,14 +168,26 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'notion-clone',
+#         'USER': 'postgres',
+#         'PASSWORD': 'qwert',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'notion-clone',
-        'USER': 'postgres',
-        'PASSWORD': 'qwert',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': os.getenv('POSTGRES_URL'),
+        'NAME': os.getenv('PGNAME'),
+        'USER': os.getenv('PGUSER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('PGHOST'),
+        'PORT': os.getenv('PGPORT'),
     }
 }
 
@@ -233,8 +246,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-
